@@ -78,5 +78,15 @@ h1{
 .weather-temperature .active{
     color: black;
     cursor: url('pics/alien-space-character-of-pixels-for-a-game.png'),auto;
-
+}
+/* weather forecast CSS: */
+.weather-forecast{
+margin-top: 20px;
+text-align: center;
+padding: 15px;
+line-height: 2;
+}
+.weather-forecast-temperature{
+font-size: 13px;
+line-height: 4;
 }
