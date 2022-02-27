@@ -1,0 +1,82 @@
+.weather-app{
+max-width: 700px;
+margin:30px auto;
+padding: 20px;
+border: 1px solid rgb(190, 185, 255);
+border-radius: 10px;
+}
+.container{ 
+font-family: 'Press Start 2P', cursive;
+}
+body, html {
+  height: 100%;
+}
+body {
+    cursor: url('pics/alien-space-character-of-pixels-for-a-game.png'),auto; 
+  /* The image used */
+  background-image: url("pics/android-weather-apps.png");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+    font-size: 13px;
+    line-height: 35px;
+    text-transform: capitalize;
+}
+.name{
+    font-size: 14px;
+    max-width: 700px;
+    margin:0 auto;
+    line-height: 0;
+    
+}
+.name a{
+    text-decoration: none;
+    cursor: url('pics/iconmonstr-rocket-16-32.png'),auto;
+}
+.weather-temperature img{
+    float: left;
+    margin-top: 10px;
+    margin-left: -8px;
+    margin-right: 30px;
+    width: 70px;
+    height: 70px; 
+}
+.weather-temperature .num{ 
+    font-size: 45px;
+    line-height: 1;
+    font-weight: 400;
+}
+.weather-temperature .units{
+    position: relative;
+    top: -50px;  
+    font-size: 16px;
+    left:85px;
+}
+.units a{
+    text-decoration: none;
+    cursor: url('pics/iconmonstr-rocket-16-32.png'),auto;
+}
+h1{
+    line-height: 80px;
+}
+.btn{
+    background-color: rgb(89, 161, 209);
+    border: 0px;
+}
+.weather-temperature .active{
+    color: black;
+    cursor: url('pics/alien-space-character-of-pixels-for-a-game.png'),auto;
+
+}
