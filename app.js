@@ -8,19 +8,28 @@ function formatDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+    return days[day];
+}
+
 function displayforecast(response) {
-    console.log(response.data.daily);
+    let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
     let forecastHTML = ` <div class="row"> `;
     let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
-    days.forEach(function (day){
-         forecastHTML = forecastHTML + `<div class="col-2">
-                <div class="weather-forecast-date">${day}</div>
-                <img src="pics/broken clouds.png" alt="" width="25px" height="25px">
+    forecast.forEach(function (forecastDay, index) {
+        if (index < 6) {
+            forecastHTML = forecastHTML + `<div class="col-2">
+                <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+                <img src="pics/${forecastDay.weather[0].description}.png" alt="" width="25px" height="25px">
                 <div class="weather-forecast-temperature">
-                <span class="weather-forecast-temperature">12°</span><span class="weather-forecast-temperature">18°</span>
+                <span class="weather-forecast-temperature">${Math.round(forecastDay.temp.max)}°</span><span class="weather-forecast-temperature">${Math.round(forecastDay.temp.min)}°</span>
                 </div>
             </div>`;
+        }
     })
         forecastHTML = forecastHTML + `</div>`;
         forecastElement.innerHTML = forecastHTML;
@@ -66,7 +75,6 @@ function searchEngine(event) {
     event.preventDefault();
     let cityInputElement = document.querySelector("#city-input");
     search(cityInputElement.value);
-
 }
 
 function displayFahrenheitTemp(event) {
@@ -86,6 +94,11 @@ function displayCelsiusLinkTemp(event) {
     temperatureElement.innerHTML = Math.round(celsiusTemperature);  
 }
 
+function displaysmile(event) {
+    event.preventDefault();
+    alert("Always smile and have a great day!😉")
+}
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
@@ -96,5 +109,8 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusLinkTemp);
+
+let smileElement = document.querySelector("#Smile");
+smileElement.addEventListener("click", displaysmile);
 
 search("New York");

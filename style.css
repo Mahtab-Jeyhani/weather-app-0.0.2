@@ -90,3 +90,9 @@ line-height: 2;
 font-size: 13px;
 line-height: 4;
 }
+img.smile{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: url('pics/iconmonstr-rocket-16-32.png'),auto;
+}
