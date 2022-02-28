@@ -8,6 +8,23 @@ function formatDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
+function displayforecast() {
+    let forecastElement = document.querySelector("#forecast");
+    let forecastHTML = ` <div class="row"> `;
+    let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+    days.forEach(function (day){
+         forecastHTML = forecastHTML + `<div class="col-2">
+                <div class="weather-forecast-date">${day}</div>
+                <img src="pics/broken clouds.png" alt="" width="25px" height="25px">
+                <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temperature">12°</span><span class="weather-forecast-temperature">18°</span>
+                </div>
+            </div>`;
+    })
+        forecastHTML = forecastHTML + `</div>`;
+        forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
     let cityElement = document.querySelector("#city");
     let temperatureElement = document.querySelector("#Temperature");
@@ -61,6 +78,8 @@ function displayCelsiusLinkTemp(event) {
 }
 
 let celsiusTemperature = null;
+
+displayforecast();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchEngine);
